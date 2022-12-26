@@ -1,0 +1,45 @@
+
+<!--
+<div class="navbar">
+    <div class="navitem" ng-mouseover="mousehover($event)">Home</div>
+    <div class="navitem" ng-mouseover="mousehover($event)">Blog</div>
+    <div class="navitem" ng-mouseover="mousehover($event)">Me</div>
+  </div>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top animate__animated animate__fadeIn" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand pointer" routerLink="home">فسانہِ دِل</a>
+    <button class="navbar-toggler navbar-toggler-right" id="menubtn" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" [attr.aria-expanded]="!isCollapsed"
+      aria-label="Toggle navigation" (click)="isCollapsed=!isCollapsed;">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="navbar-collapse collapse"  id="navbarResponsive" [attr.aria-expanded]="!isCollapsed" [ngClass]="{ show: isShown}" (click)="isShown=!isShown;">
+      <ul class="navbar-nav ml-auto" (click)="isCollapsed = !isCollapsed; isShown=!isShown">
+        <li class="nav-item">
+          <a class="nav-link pointer" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pointer" routerLink="about">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pointer" routerLink="posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  $(document).ready(function(){
+  $('.nav-item').click(function () {
+    console.log(isShown);
+      $('.navbar-collapse').removeClass('show') //bootstrap 3.x  
+  });
+});
+
+  </script>
