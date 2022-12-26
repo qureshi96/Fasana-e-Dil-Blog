@@ -1,10 +1,22 @@
 <style>
     :host ::ng-deep header.masthead{
-    background-image: url("/assets/IMG_5207.JPG");
+    background-image: url('/assets/IMG_5207.JPG');
 
 }
 </style>
 <app-cover></app-cover>
-<h1 class="text-center animate__animated animate__fadeIn">New Posts Coming Soon</h1>
+<h1 class="text-center animate__animated animate__fadeIn">All Posts</h1>
+<hr class="container">
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div *ngFor="let blog of blogs">
+        <app-postpreview [post]="blog"></app-postpreview>
+        <hr>
+      </div>
+      <div class="clearfix">
+      </div>
+    </div>
+  </div>
+
 
 
