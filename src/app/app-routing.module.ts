@@ -9,7 +9,7 @@ const routes:Routes=[
     { path: "home", component: HomepageComponent },
     { path: "about", component: AboutComponent },
     { path: "posts", component: PostsComponent },
-  
+    
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes,{useHash:true})],
