@@ -10,7 +10,7 @@ const routes:Routes=[
     { path: "home", component: HomepageComponent },
     { path: "about", component: AboutComponent },
     { path: "posts", component: PostsComponent },
-    { path: "post/:id", component:PostviewComponent}
+    { path: "post", component:PostviewComponent}
     
 ];
 @NgModule({

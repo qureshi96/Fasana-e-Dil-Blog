@@ -14,6 +14,6 @@ export class PostpreviewComponent implements OnInit {
   ngOnInit(): void {
   }
 public navigate():void{
- this.router.navigateByUrl("/post/?id=" + this.post.id);
+ this.router.navigateByUrl("/post?id=" + this.post.id);
 }
 }
