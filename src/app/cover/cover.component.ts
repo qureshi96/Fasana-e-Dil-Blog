@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-cover',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cover.component.css']
 })
 export class CoverComponent implements OnInit {
-
+  @Input() id;
+  @Input() blogtitle: string;
+  @Input() blogsubtitle : string;
   constructor() { }
 
   ngOnInit(): void {

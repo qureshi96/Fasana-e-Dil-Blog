@@ -1,1 +1,4 @@
-<app-cover [id]="id"></app-cover>
+<app-cover [id]="id" [blogtitle]="blogpost.title" [blogsubtitle]="blogpost.subtitle"></app-cover>
+<div *ngFor="let para of blogpost.content,let i = index">
+    <div *ngIf="i%2==0" class="container contentParagraph animate__animated animate__fadeInLeft">{{para}}</div>
+</div>

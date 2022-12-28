@@ -2,14 +2,15 @@
 
 <div class="CoverTitle">فسانہِ دِل</div> -->
 
-<header  class="masthead animate__animated animate__fadeInLeft" id='coverpic' [ngClass]="{id0:'id==0',id1:'id==1'}" >
+<header  class="masthead animate__animated" id='coverpic' 
+        [ngClass]="id==0 ? 'id0 animate__fadeInRight':'animate__fadeInLeft'" >
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1 ng-bind="header.title" class="animate__animated animate__slideInDown"></h1>
-            <span class="subheading animate__animated animate__slideInUp " ng-bind="header.subtitle"></span>
+            <h1 class="animate__animated animate__fadeInUp">{{blogtitle}}</h1>
+            <span class="subheading animate__animated animate__fadeInRight " ng-bind="header.subtitle">{{blogsubtitle}}</span>
             <span class="meta" ng-if="header.byline.length > 0" ng-bind="header.byline">
             </span>
           </div>

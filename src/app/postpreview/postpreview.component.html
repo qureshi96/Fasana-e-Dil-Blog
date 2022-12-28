@@ -1,7 +1,7 @@
 <div class="post-preview animate__animated animate__fadeInLeft">
     <a (click)="navigate()" class="pointer">
         <h2 class ="post-title" >{{post.title}}</h2>
-        <h3 class ="post-subtitle">{{post.content.length > 48 ? post.content.substring(0, 50)+"..." : post.content }}</h3>
+        <h3 class ="post-subtitle">{{post.content[0].length > 48 ? post.content[0].substring(0, 50)+"..." : post.content[0] }}</h3>
     </a>
     <p class ="post-meta"> Posted by
         <a href="#" [textContent]="post.author"></a>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { BlogPostModel } from '../data/blogPostModel';
+import { BlogPostsList } from '../data/blogPostsList';
 @Component({
   selector: 'app-postview',
   templateUrl: './postview.component.html',
@@ -9,13 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PostviewComponent implements OnInit {
   params:any;
   id:any;
-  querystring:string;
+  querystring:string = "";
+  blogpost: BlogPostModel = new BlogPostModel();
+  blogslist:BlogPostsList = new BlogPostsList();
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.querystring=this.router.url.toString().split("?")[1];
     this.params = new URLSearchParams(this.querystring);
     this.id=this.params.get("id");
+
+    this.blogpost = this.blogslist.blogsList[this.id];
   }
   
   

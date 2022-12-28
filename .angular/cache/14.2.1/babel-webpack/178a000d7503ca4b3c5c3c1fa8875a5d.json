@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { Id_0_EdinburghLife } from \"./Id_0_EdinburghLife\";\nexport class BlogPostsList {\n  constructor() {\n    this.blogsList = [];\n    this.obj = new Id_0_EdinburghLife();\n    this.blogsList[0] = this.obj.blogPost;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
