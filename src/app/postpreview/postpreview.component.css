@@ -9,20 +9,24 @@
   }
   
   .post-preview>a>.post-title {
-    font-size: 30px;
+    font-size: 3.5vmax;
+    margin-left: 2%;
     margin-top: 30px;
     margin-bottom: 10px;
   }
   
   .post-preview>a>.post-subtitle {
+    font-size: 2.5vmin;
     font-weight: 300;
-    margin: 0 0 10px;
+    margin-left: 2%;
+    
   }
   
   .post-preview>.post-meta {
-    font-size: 18px;
+    font-size: 2vmin;
     font-style: italic;
     margin-top: 0;
+    margin-left: 2%;
     color: #868e96;
   }
   

@@ -1,4 +1,9 @@
 <app-cover [id]="id" [blogtitle]="blogpost.title" [blogsubtitle]="blogpost.subtitle"></app-cover>
 <div *ngFor="let para of blogpost.content,let i = index">
-    <div *ngIf="i%2==0" class="container contentParagraph animate__animated animate__fadeInLeft">{{para}}</div>
+    <div style="text-align: center; margin-top: 2%;margin-bottom: 2%;">
+    <img *ngIf="i%2==0 && i!=0" class="col-lg-8" data-aos="fade-left" data-aos-duration="1000"
+            src="{{'/assets/Blog_id' + id + '_index' + i +'.JPG'}}" >
+     </div>
+    <div class="container contentParagraph animate__animated" [ngClass]="i%2==0? 'animate__fadeInLeft':'animate__fadeInRight'">{{para}}</div>
 </div>
+<!---->

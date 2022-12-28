@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BlogPostsList } from '../data/blogPostsList';
 import { BlogPostModel } from '../data/blogPostModel';
 import { Router } from '@angular/router';
+import AOS from 'aos';
 @Component({
   selector: 'app-postpreview',
   templateUrl: './postpreview.component.html',
@@ -12,8 +13,11 @@ export class PostpreviewComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+   AOS.init();
+
   }
 public navigate():void{
  this.router.navigateByUrl("/post?id=" + this.post.id);
+
 }
 }

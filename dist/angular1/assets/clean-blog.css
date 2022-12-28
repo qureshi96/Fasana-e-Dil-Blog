@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: 350;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -214,7 +214,7 @@ img::-moz-selection {
 
 
 header.masthead {
-  margin-bottom: 50px;
+  margin-bottom:10px;
   background: no-repeat center center;
   background-color: #adb4bb;
   background-attachment:scroll;
