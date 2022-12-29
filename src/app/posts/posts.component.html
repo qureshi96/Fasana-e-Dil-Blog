@@ -4,13 +4,13 @@
 
 }
 </style>
-<app-cover></app-cover>
+<app-cover [ispostclicked]="ispostclicked"></app-cover>
 <h1 class="text-center animate__animated animate__fadeInUp" style="color:#7A1A1A ;">All Posts</h1>
 <hr class="container">
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
       <div *ngFor="let blog of blogs">
-        <app-postpreview [post]="blog"></app-postpreview>
+        <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)"></app-postpreview>
         <hr>
       </div>
       <div class="clearfix">

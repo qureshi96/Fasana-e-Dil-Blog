@@ -10,6 +10,7 @@ import { BlogPostsList } from '../data/blogPostsList';
 export class HomepageComponent implements OnInit {
  blogslist: BlogPostsList=new BlogPostsList();
   blogs:BlogPostModel[]= [];
+  ispostclicked:boolean=false;
 
   constructor(private renderer: Renderer2) { }
 
@@ -17,5 +18,7 @@ export class HomepageComponent implements OnInit {
   this.blogs=this.blogslist.blogsList;
 
   }
-
+  public getPostClick(data){
+    this.ispostclicked=data;
+  }
 }

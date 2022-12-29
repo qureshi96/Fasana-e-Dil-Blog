@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BlogPostsList } from '../data/blogPostsList';
 import { BlogPostModel } from '../data/blogPostModel';
 import { Router } from '@angular/router';
@@ -10,19 +10,29 @@ import AOS from 'aos';
 })
 export class PostpreviewComponent implements OnInit {
 @Input ()post: BlogPostModel = new BlogPostModel();
+postclicked:boolean;
+@Output() ispostclicked:EventEmitter<boolean> =new EventEmitter();
   constructor(private router: Router) { }
 
   ngOnInit(): void {
    AOS.init();
+   this.postclicked=false;
 
   }
+ 
 public navigate():void{
-  window.scroll({ 
-    top: 0, 
-    left: 0, 
-    behavior: 'smooth' 
-});
- this.router.navigateByUrl("/post?id=" + this.post.id);
-
+this.postclicked=true;
+this.ispostclicked.emit(this.postclicked);
+  setTimeout(() => {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior:'auto' 
+  });
+   this.router.navigateByUrl("/post?id=" + this.post.id);
+ }, 500);
+ 
 }
+
+
 }

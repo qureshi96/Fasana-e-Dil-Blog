@@ -9,6 +9,7 @@ export class CoverComponent implements OnInit {
   @Input() id;
   @Input() blogtitle: string;
   @Input() blogsubtitle : string;
+  @Input() ispostclicked:boolean;
   constructor() { }
 
   ngOnInit(): void {

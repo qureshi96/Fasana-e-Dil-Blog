@@ -3,7 +3,8 @@
 <div class="CoverTitle">فسانہِ دِل</div> -->
 
 <header  class="masthead animate__animated" id='coverpic' 
-        [ngClass]="id==0 ? 'id0 animate__fadeInRight':'animate__fadeInLeft'" >
+        [ngClass]="[id==0 ? 'id0 animate__fadeInRight':'animate__fadeInLeft',id==1?'id1 animate__fadeInRight':'animate__fadeInLeft',
+                    ispostclicked?'animate__fadeOutLeft':''] " >
     <div class="overlay"></div>
     <div class="container">
       <div class="row">

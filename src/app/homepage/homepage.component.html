@@ -5,7 +5,7 @@
 
 }
 </style>
-<app-cover></app-cover>
+<app-cover [ispostclicked]="ispostclicked"></app-cover>
 <h1 style="text-align: center; margin-top: 10px;color: #7A1A1A;" class="animate__animated animate__slideInRight">About Fasana e Dil</h1>
 <hr class="container">
 <app-content></app-content>
@@ -15,9 +15,11 @@
 <hr class = "container animate__animated animate__fadeInRight">
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <div *ngFor="let blog of blogs">
-        <app-postpreview [post]="blog"></app-postpreview>
+      <div *ngFor="let blog of blogs, let i = index">
+        <div *ngIf="i<3">
+        <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)"></app-postpreview>
         <hr>
+        </div>  
       </div>
       <div class="clearfix">
         
