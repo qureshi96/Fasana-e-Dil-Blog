@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
       .rest(1500)
       .clear()
       .changeTypeClass('cyrillic')
-      .type('история о сердце')
+      .type('История сердца')
       .rest(1500)
       .clear()
       .changeTypeClass('urdufont')
