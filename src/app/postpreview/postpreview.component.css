@@ -5,7 +5,7 @@
   .post-preview>a:focus,
   .post-preview>a:hover {
     text-decoration: none;
-    color: #0085A1;
+    color: #7A1A1A;
   }
   
   .post-preview>a>.post-title {
@@ -23,7 +23,7 @@
   }
   
   .post-preview>.post-meta {
-    font-size: 2vmin;
+    font-size: 1em;
     font-style: italic;
     margin-top: 0;
     margin-left: 2%;
@@ -38,7 +38,7 @@
   .post-preview>.post-meta>a:focus,
   .post-preview>.post-meta>a:hover {
     text-decoration: underline;
-    color: #0085A1;
+    color: #7A1A1A;
   }
   
   @media only screen and (min-width: 768px) {

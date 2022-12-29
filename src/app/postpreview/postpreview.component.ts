@@ -17,6 +17,11 @@ export class PostpreviewComponent implements OnInit {
 
   }
 public navigate():void{
+  window.scroll({ 
+    top: 0, 
+    left: 0, 
+    behavior: 'smooth' 
+});
  this.router.navigateByUrl("/post?id=" + this.post.id);
 
 }

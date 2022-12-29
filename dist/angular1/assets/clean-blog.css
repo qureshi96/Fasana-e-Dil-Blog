@@ -1,6 +1,8 @@
+html, body {
+  overflow-x: hidden;
+}
 body {
-  
-  
+  position: relative
 }
 
 p {
@@ -25,8 +27,10 @@ h3,
 h4,
 h5,
 h6 {
+  
   font-weight: 350;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 a {
