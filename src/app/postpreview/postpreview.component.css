@@ -16,14 +16,14 @@
   }
   
   .post-preview>a>.post-subtitle {
-    font-size: 2.5vmin;
+    font-size:medium;
     font-weight: 300;
     margin-left: 2%;
     
   }
   
   .post-preview>.post-meta {
-    font-size: 1em;
+    font-size: 0.7em;
     font-style: italic;
     margin-top: 0;
     margin-left: 2%;
