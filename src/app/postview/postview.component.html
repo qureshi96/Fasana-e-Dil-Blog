@@ -6,6 +6,7 @@
             src="{{'/assets/Blog_id' + id + '_index' + i +'.JPG'}}" >
         
         </div>
-    <div class="container contentParagraph animate__animated" [ngClass]="i%2==0? 'animate__fadeInLeft':'animate__fadeInRight'">{{para}}</div>
+        <div *ngIf="i%2!=0" data-aos="fade-left" data-aos-duration="1000" class="container contentParagraph">{{para}}</div>
+    <div *ngIf="i%2==0" data-aos="fade-right" data-aos-duration="1000" class="container contentParagraph">{{para}}</div>
 </div>
 <!---->
