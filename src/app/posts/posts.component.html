@@ -6,10 +6,11 @@
 </style>
 <app-cover [ispostclicked]="ispostclicked"></app-cover>
 <h1 class="text-center animate__animated animate__fadeInUp" 
-    [ngClass]="ispostclicked?'animate__fadeOutLeft':''" style="color:#7A1A1A ;">All Posts</h1>
-<hr class="container">
+    [ngClass]="ispostclicked||this.navbarclick.navbarclick?'animate__fadeOutLeft':''" style="color:#7A1A1A ;">All Posts</h1>
+
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-lg-8 col-md-10 mx-auto animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutDown':''">
+        <hr class="container">
       <div *ngFor="let blog of blogs">
         <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)"></app-postpreview>
         <hr>

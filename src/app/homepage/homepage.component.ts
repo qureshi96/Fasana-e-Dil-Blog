@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import * as Aos from 'aos';
 import { BlogPostModel } from '../data/blogPostModel';
 import { BlogPostsList } from '../data/blogPostsList';
+import { NavbarclickService } from '../navbarclick.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -13,7 +14,11 @@ export class HomepageComponent implements OnInit {
   blogs:BlogPostModel[]= [];
   ispostclicked:boolean=false;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,public navbarclick:NavbarclickService) { 
+    if(navbarclick.navbarclick){
+      navbarclick.navbarclick=false;
+    }
+  }
 
   ngOnInit(): void {
     Aos.init();

@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
       this.navbarclick.emit(true);
       setTimeout(() => {
         this.router.navigateByUrl('/home');
-      }, 400);
+      }, 650);
     }
   }
   aboutclick(){
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
       this.navbarclick.emit(true);
       setTimeout(() => {
         this.router.navigateByUrl('/about');
-      }, 400);
+      }, 650);
     }
   }
 
@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
       this.navbarclick.emit(true);
       setTimeout(() => {
         this.router.navigateByUrl('/posts');
-      }, 400);
+      }, 650);
     }
   }
 

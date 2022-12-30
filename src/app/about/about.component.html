@@ -5,11 +5,14 @@
 }
 </style>
 <app-cover></app-cover>
-<div class="container contentParagraph animate__animated animate__fadeInDown">{{para1}}</div>
+<div class="container contentParagraph animate__animated"
+[ngClass]="this.navbarclick.navbarclick? 'animate__fadeOutLeft':'animate__fadeInDown'">{{para1}}</div>
 
-<div class="container contentParagraph" data-aos="fade-right" data-aos-duration="1000">{{para2}}</div>
+<div class="container contentParagraph animate__animated" data-aos="fade-right" data-aos-duration="1000"
+[ngClass]="this.navbarclick.navbarclick? 'animate__fadeOutRight':''">{{para2}}</div>
 
-<div class="container contentParagraph" data-aos="fade-left" data-aos-duration="1000">{{para3}}</div>
+<div class="container contentParagraph animate__animated" data-aos="fade-left" data-aos-duration="1000"
+[ngClass]="this.navbarclick.navbarclick? 'animate__fadeOutUp':''">{{para3}}</div>
 <script>
 
 </script>

@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import * as Aos from 'aos';
 import { BlogPostModel } from '../data/blogPostModel';
 import { BlogPostsList } from '../data/blogPostsList';
+import { NavbarclickService } from '../navbarclick.service';
 
 
 @Component({
@@ -14,8 +15,11 @@ export class AboutComponent implements OnInit {
   para1 : string;
   para2 :string;
   para3: string;
-  constructor() {
-    
+  constructor(public navbarclick:NavbarclickService) {
+    if(navbarclick.navbarclick)
+    {
+      navbarclick.navbarclick=false;
+    }
    }
 
   ngOnInit(): void {

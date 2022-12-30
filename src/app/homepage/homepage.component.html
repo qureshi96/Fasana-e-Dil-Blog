@@ -6,9 +6,12 @@
 }
 </style>
 <app-cover [ispostclicked]="ispostclicked"></app-cover>
-
+<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutDown':''">
 <h1 style="text-align: center; margin-top: 10px;color: #7A1A1A;" class="animate__animated animate__slideInRight">About Fasana e Dil</h1>
+</div>
+<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutUp':''">    
 <hr class="container">
+
 <app-content></app-content>
 <hr class = "container animate__animated animate__fadeInLeft">
 <h1 style="text-align: center; margin: 12px; color: #7A1A1A;"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">Recent Posts</h1>
@@ -31,6 +34,6 @@
       </div>
     </div>
   </div>
-  
+</div>
       
 
