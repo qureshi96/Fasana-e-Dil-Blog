@@ -9,7 +9,7 @@ export class BlogPostsList{
     constructor(){
         this.obj=new Id_0_EdinburghLife
         this.blogsList[0]=this.obj.blogPost;
-        this.obj=new Id_1_Cricket;
-        this.blogsList[1]=this.obj.blogPost;
+        //this.obj=new Id_1_Cricket;
+        //this.blogsList[1]=this.obj.blogPost;
     }
 }
