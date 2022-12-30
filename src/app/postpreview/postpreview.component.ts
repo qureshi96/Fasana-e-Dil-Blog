@@ -30,7 +30,7 @@ this.ispostclicked.emit(this.postclicked);
       behavior:'auto' 
   });
    this.router.navigateByUrl("/post?id=" + this.post.id);
- }, 500);
+ }, 550);
  
 }
 

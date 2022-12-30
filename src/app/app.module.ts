@@ -10,7 +10,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostpreviewComponent } from './postpreview/postpreview.component';
-
 import { PostviewComponent } from './postview/postview.component';
 
 @NgModule({

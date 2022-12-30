@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { NavbarclickService } from '../navbarclick.service';
 
 @Component({
   selector: 'app-cover',
@@ -10,7 +11,11 @@ export class CoverComponent implements OnInit {
   @Input() blogtitle: string;
   @Input() blogsubtitle : string;
   @Input() ispostclicked:boolean;
-  constructor() { }
+  constructor(public navbarclick:NavbarclickService) { 
+    if(navbarclick.navbarclick){
+      navbarclick.navbarclick=false;
+    }
+  }
 
   ngOnInit(): void {
   }

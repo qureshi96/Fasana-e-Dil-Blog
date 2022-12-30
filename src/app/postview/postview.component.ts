@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPostModel } from '../data/blogPostModel';
 import { BlogPostsList } from '../data/blogPostsList';
+import * as Aos from 'aos';
 @Component({
   selector: 'app-postview',
   templateUrl: './postview.component.html',
@@ -16,11 +17,13 @@ export class PostviewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    Aos.init();
     this.querystring=this.router.url.toString().split("?")[1];
     this.params = new URLSearchParams(this.querystring);
     this.id=this.params.get("id");
 
     this.blogpost = this.blogslist.blogsList[this.id];
+  
   }
   
   

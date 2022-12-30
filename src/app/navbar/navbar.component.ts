@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import Typewriter from 't-writer.js';
 
 
@@ -10,8 +11,40 @@ import Typewriter from 't-writer.js';
 export class NavbarComponent implements OnInit {
   isCollapsed:Boolean = false;
   isShown: Boolean = false;
+  @Output () navbarclick:EventEmitter<boolean>=new EventEmitter();
+  constructor(private router: Router) { }
+  
+  homeclick(){
+  if(this.router.url!='/home')
+    {
+      this.navbarclick.emit(true);
+      setTimeout(() => {
+        this.router.navigateByUrl('/home');
+      }, 400);
+    }
+  }
+  aboutclick(){
+    if(this.router.url!='/about')
+    {
+      this.navbarclick.emit(true);
+      setTimeout(() => {
+        this.router.navigateByUrl('/about');
+      }, 400);
+    }
+  }
 
-  constructor() { }
+  postsclick(){
+    if(this.router.url!='/posts')
+   {
+      this.navbarclick.emit(true);
+      setTimeout(() => {
+        this.router.navigateByUrl('/posts');
+      }, 400);
+    }
+  }
+
+
+
 
   ngOnInit(): void {
     const target = document.querySelector('.tw');

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavbarclickService } from './navbarclick.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular1';
+  
+  constructor(public navbarclick:NavbarclickService){
+
+  }
+  getnavbarclick(event){
+    if(!this.navbarclick.navbarclick)
+    {this.navbarclick.navbarclick=event;}
+    else{this.navbarclick.navbarclick=false;}
+  }
+ 
 
 }
