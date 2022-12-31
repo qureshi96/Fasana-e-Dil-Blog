@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPostModel } from '../data/blogPostModel';
 import { BlogPostsList } from '../data/blogPostsList';
 import * as Aos from 'aos';
+import { NavbarclickService } from '../navbarclick.service';
 @Component({
   selector: 'app-postview',
   templateUrl: './postview.component.html',
@@ -14,7 +15,11 @@ export class PostviewComponent implements OnInit {
   querystring:string = "";
   blogpost: BlogPostModel = new BlogPostModel();
   blogslist:BlogPostsList = new BlogPostsList();
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, public navbarclick:NavbarclickService) { 
+    if(navbarclick.navbarclick){
+      navbarclick.navbarclick=false;
+    }
+  }
 
   ngOnInit(): void {
     Aos.init();

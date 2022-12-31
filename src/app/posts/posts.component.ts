@@ -12,6 +12,7 @@ export class PostsComponent implements OnInit {
   blogslist: BlogPostsList=new BlogPostsList();
   blogs:BlogPostModel[]= [];
   ispostclicked:boolean=false;
+  postindex=0;
   constructor(public navbarclick:NavbarclickService) { 
     if(navbarclick.navbarclick){
       navbarclick.navbarclick=false;
@@ -21,6 +22,9 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.blogs=this.blogslist.blogsList;
 
+  }
+  public getindex(event){
+    this.postindex=event;
   }
   public getPostClick(data){
     this.ispostclicked=data;

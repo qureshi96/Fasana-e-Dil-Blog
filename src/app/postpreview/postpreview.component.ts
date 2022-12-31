@@ -12,6 +12,7 @@ export class PostpreviewComponent implements OnInit {
 @Input ()post: BlogPostModel = new BlogPostModel();
 postclicked:boolean;
 @Output() ispostclicked:EventEmitter<boolean> =new EventEmitter();
+@Output() postindex:EventEmitter<any> = new EventEmitter();
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ postclicked:boolean;
 public navigate():void{
 this.postclicked=true;
 this.ispostclicked.emit(this.postclicked);
+this.postindex.emit(this.post.id);
   setTimeout(() => {
     window.scroll({ 
       top: 0, 
