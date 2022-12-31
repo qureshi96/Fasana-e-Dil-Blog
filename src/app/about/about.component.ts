@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import * as Aos from 'aos';
 import { NavbarclickService } from '../navbarclick.service';
 
 
@@ -21,7 +20,6 @@ export class AboutComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    Aos.init();
     this.para1="I am Usman, also being referred to as Uzzie by some people here in Scotland. "
     +"Currently living in Edinburgh, striving to understand the northern accents, getting used to the taste of Cheese and Onion pasty from Greggs and "
     +"missing Kabab Karahi from Shehanshah Tikka House in Rawalpindi.";

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import * as Aos from 'aos';
 import { BlogListService } from '../blog-list.service';
 import { BlogPostModel } from '../data/blogPostModel';
 import { NavbarclickService } from '../navbarclick.service';
@@ -19,6 +20,9 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    Aos.init({
+      once:true
+    })
     this.blogs=this.bloglist.GetBlogList();
 
   }

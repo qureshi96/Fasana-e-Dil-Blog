@@ -15,8 +15,8 @@ postclicked:boolean;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    Aos.init();
-  
+  Aos.init({
+  })
    this.postclicked=false;
 
   }

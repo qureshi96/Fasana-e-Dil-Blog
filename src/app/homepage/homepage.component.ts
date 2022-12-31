@@ -22,7 +22,9 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Aos.init();
+    Aos.init({
+      once:true
+    });
   this.blogs=this.bloglist.GetBlogList();
 
   }
