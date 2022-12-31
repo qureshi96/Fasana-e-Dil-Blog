@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPostModel } from '../data/blogPostModel';
-import { BlogPostsList } from '../data/blogPostsList';
 import * as Aos from 'aos';
 import { NavbarclickService } from '../navbarclick.service';
+import { BlogListService } from '../blog-list.service';
 @Component({
   selector: 'app-postview',
   templateUrl: './postview.component.html',
@@ -14,8 +14,7 @@ export class PostviewComponent implements OnInit {
   id:any;
   querystring:string = "";
   blogpost: BlogPostModel = new BlogPostModel();
-  blogslist:BlogPostsList = new BlogPostsList();
-  constructor(private route: ActivatedRoute, private router: Router, public navbarclick:NavbarclickService) { 
+  constructor(private route: ActivatedRoute, private router: Router, public navbarclick:NavbarclickService, public bloglist:BlogListService) { 
     if(navbarclick.navbarclick){
       navbarclick.navbarclick=false;
     }
@@ -27,7 +26,7 @@ export class PostviewComponent implements OnInit {
     this.params = new URLSearchParams(this.querystring);
     this.id=this.params.get("id");
 
-    this.blogpost = this.blogslist.blogsList[this.id];
+    this.blogpost = this.bloglist.GetBlogPost(this.id);
   
   }
   

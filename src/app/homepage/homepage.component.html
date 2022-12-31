@@ -6,34 +6,38 @@
 }
 </style>
 <app-cover [ispostclicked]="ispostclicked"></app-cover>
-<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutDown':''">
+<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick || isallpostsclicked?'animate__fadeOutUp':''">
 <h1 style="text-align: center; margin-top: 10px;color: #7A1A1A;" class="animate__animated animate__slideInRight">About Fasana e Dil</h1>
 </div>
-<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutUp':''">    
+<div class="animate__animated" [ngClass]="this.navbarclick.navbarclick || isallpostsclicked ?'animate__fadeOutUp':''">    
 <hr class="container">
 
 <app-content></app-content>
 <hr class = "container animate__animated animate__fadeInLeft">
 <h1 style="text-align: center; margin: 12px; color: #7A1A1A;"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">Recent Posts</h1>
 <hr class = "container animate__animated animate__fadeInRight">
+</div>
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-lg-8 col-md-10 mx-auto animate__animated" [ngClass]="isallpostsclicked || this.navbarclick.navbarclick ?'animate__fadeOutDown':''">
       <div *ngFor="let blog of blogs, let i = index">
         <div *ngIf="i<3">
-        <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)"></app-postpreview>
+            <div class="animate__animated" [ngClass]="[ispostclicked&&i!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&i==this.postindex?'animate__fadeOutRight':'']">
+        <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)" (postindex)='getindex($event)'></app-postpreview>
         <hr>
+        </div>
         </div>  
       </div>
       <div class="clearfix">
         
          
-        <a class="btn btn-secondary float-right pointer" style="padding:0.5vh 0.6vw; font-size: 2vmin; font-weight: 200; border-radius: 5px;" data-aos="fade-left" data-aos-duration="1000" routerLink="/posts">
+        <a class="btn btn-secondary float-right pointer animate__animated" style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
+            (click)="allPostClick()" [ngClass]="isallpostsclicked?'animate__fadeOutRight':''" data-aos="fade-left" data-aos-duration="1000">
           All Posts &rarr;
         </a>
         
       </div>
     </div>
   </div>
-</div>
+
       
 

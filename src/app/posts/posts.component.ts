@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BlogListService } from '../blog-list.service';
 import { BlogPostModel } from '../data/blogPostModel';
-import { BlogPostsList } from '../data/blogPostsList';
 import { NavbarclickService } from '../navbarclick.service';
 
 @Component({
@@ -9,18 +9,17 @@ import { NavbarclickService } from '../navbarclick.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  blogslist: BlogPostsList=new BlogPostsList();
   blogs:BlogPostModel[]= [];
   ispostclicked:boolean=false;
   postindex=0;
-  constructor(public navbarclick:NavbarclickService) { 
+  constructor(public navbarclick:NavbarclickService,public bloglist:BlogListService) { 
     if(navbarclick.navbarclick){
       navbarclick.navbarclick=false;
     }
   }
 
   ngOnInit(): void {
-    this.blogs=this.blogslist.blogsList;
+    this.blogs=this.bloglist.GetBlogList();
 
   }
   public getindex(event){

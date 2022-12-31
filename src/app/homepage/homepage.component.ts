@@ -1,8 +1,8 @@
 import { Component, OnInit, Renderer2,Input } from '@angular/core';
 import { Router } from "@angular/router";
 import * as Aos from 'aos';
+import { BlogListService } from '../blog-list.service';
 import { BlogPostModel } from '../data/blogPostModel';
-import { BlogPostsList } from '../data/blogPostsList';
 import { NavbarclickService } from '../navbarclick.service';
 @Component({
   selector: 'app-homepage',
@@ -10,11 +10,12 @@ import { NavbarclickService } from '../navbarclick.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
- blogslist: BlogPostsList=new BlogPostsList();
   blogs:BlogPostModel[]= [];
   ispostclicked:boolean=false;
+  isallpostsclicked:boolean=false;
+  postindex=0;
 
-  constructor(private renderer: Renderer2,public navbarclick:NavbarclickService) { 
+  constructor(private renderer: Renderer2,public navbarclick:NavbarclickService, public bloglist:BlogListService,private router:Router) { 
     if(navbarclick.navbarclick){
       navbarclick.navbarclick=false;
     }
@@ -22,10 +23,24 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     Aos.init();
-  this.blogs=this.blogslist.blogsList;
+  this.blogs=this.bloglist.GetBlogList();
 
   }
   public getPostClick(data){
     this.ispostclicked=data;
   }
+  public allPostClick(){
+    this.isallpostsclicked=true;
+    setTimeout(() => {
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior:'auto' 
+    });
+    this.router.navigateByUrl('/posts');
+   }, 650);
+  }
+   public getindex(event){
+    this.postindex=event;
+  }  
 }

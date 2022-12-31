@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import * as Aos from 'aos';
-import { BlogPostModel } from '../data/blogPostModel';
-import { BlogPostsList } from '../data/blogPostsList';
 import { NavbarclickService } from '../navbarclick.service';
 
 

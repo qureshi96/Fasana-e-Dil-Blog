@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BlogPostsList } from '../data/blogPostsList';
 import { BlogPostModel } from '../data/blogPostModel';
 import { Router } from '@angular/router';
 import * as Aos from 'aos';
