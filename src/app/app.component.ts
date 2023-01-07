@@ -16,7 +16,6 @@ export class AppComponent {
   getnavbarclick(event){
     if(!this.navbarclick.navbarclick)
     {this.navbarclick.navbarclick=event;}
-    else{this.navbarclick.navbarclick=false;}
   }
  
 

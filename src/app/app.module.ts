@@ -27,7 +27,7 @@ import { PostviewComponent } from './postview/postview.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
