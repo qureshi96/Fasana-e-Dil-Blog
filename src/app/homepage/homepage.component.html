@@ -19,7 +19,7 @@
 </div>
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto animate__animated">
-      <div *ngFor="let blog of blogs, let i = index">
+      <div *ngFor="let blog of blogs.slice().reverse(), let i = index">
         <div *ngIf="i<3">
             <div class="animate__animated" [ngClass]="[ispostclicked&&i!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&i==this.postindex?'animate__fadeOutRight':'',
             isallpostsclicked || this.navbarclick.navbarclick ?'animate__fadeOutDown':'']">
@@ -28,9 +28,7 @@
         </div>
         </div>  
       </div>
-      <div class="clearfix">
-        
-         
+      <div class="clearfix">  
         <a class="btn btn-secondary float-right pointer animate__animated" style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
             (click)="allPostClick()" [ngClass]="isallpostsclicked || ispostclicked ?'animate__fadeOutRight':''" data-aos="fade-left" data-aos-duration="1000">
           All Posts &rarr;

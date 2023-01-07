@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto animate__animated" [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutDown':''">
         <hr class="container animate__animated" [ngClass]="ispostclicked?'animate__fadeOutDown':''">
-      <div *ngFor="let blog of blogs, let i = index">
+      <div *ngFor="let blog of blogs.slice().reverse(), let i = index">
         <div class="animate__animated" [ngClass]="[ispostclicked&&i!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&i==this.postindex?'animate__fadeOutRight':'']">
         <app-postpreview [post]="blog" (ispostclicked)='getPostClick($event)' (postindex)='getindex($event)'></app-postpreview>
         <hr>
