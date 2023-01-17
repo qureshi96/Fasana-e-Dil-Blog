@@ -20,8 +20,8 @@
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto animate__animated">
       <div *ngFor="let blog of blogs.slice().reverse(), let i = index">
-        <div *ngIf="i<3">
-            <div class="animate__animated" [ngClass]="[ispostclicked&&i!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&i==this.postindex?'animate__fadeOutRight':'',
+        <div *ngIf="i<2">
+            <div class="animate__animated" [ngClass]="[ispostclicked&&(blogs.length-i)-1!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&(blogs.length-i)-1==this.postindex?'animate__fadeOutRight':'',
             isallpostsclicked || this.navbarclick.navbarclick ?'animate__fadeOutDown':'']">
         <app-postpreview [post]="blog" (ispostclicked)="getPostClick($event)" (postindex)='getindex($event)'></app-postpreview>
         <hr>
