@@ -25,6 +25,7 @@ export class HomepageComponent implements OnInit {
     Aos.init({
       once:true
     });
+
   this.blogs=this.bloglist.GetBlogList();
 
   }
