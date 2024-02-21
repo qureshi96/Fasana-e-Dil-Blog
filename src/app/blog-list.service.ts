@@ -12,7 +12,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
   providedIn: 'root'
 })
 export class BlogListService {
- // items: AngularFireList<any>;
+ 
   blogsList : BlogPostModel[]= [];
   obj:any;
   constructor() { 
@@ -20,7 +20,7 @@ export class BlogListService {
     this.blogsList[0]=this.obj.blogPost;
     this.obj=new Id_1_Cricket;
     this.blogsList[1]=this.obj.blogPost;
-    this.obj=new Id_2_Tirana;
+    this.obj=new Id_2_Tirana; 
     this.blogsList[2]=this.obj.blogPost;
     //this.items = db.list('BlogsList');
     
