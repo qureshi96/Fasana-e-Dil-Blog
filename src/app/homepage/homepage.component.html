@@ -18,7 +18,7 @@
 <hr class = "container animate__animated animate__fadeInRight">
 </div>
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto animate__animated">
+    <div class="col-lg-8 col-md-8 mx-auto animate__animated">
       <div *ngFor="let blog of blogs.slice().reverse(), let i = index">
         <div *ngIf="i<2">
             <div class="animate__animated" [ngClass]="[ispostclicked&&(blogs.length-i)-1!=this.postindex?'animate__fadeOutLeft':'',ispostclicked&&(blogs.length-i)-1==this.postindex?'animate__fadeOutRight':'',
