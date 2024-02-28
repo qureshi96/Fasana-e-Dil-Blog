@@ -11,6 +11,8 @@ import { AboutComponent } from './about/about.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostpreviewComponent } from './postpreview/postpreview.component';
 import { PostviewComponent } from './postview/postview.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,11 @@ import { PostviewComponent } from './postview/postview.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

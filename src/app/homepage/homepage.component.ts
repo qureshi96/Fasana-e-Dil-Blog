@@ -25,8 +25,10 @@ export class HomepageComponent implements OnInit {
     Aos.init({
       once:true
     });
-
-  this.blogs=this.bloglist.GetBlogList();
+    setTimeout(() => {
+      this.blogs=this.bloglist.GetBlogList();
+    }, 250);
+  
 
   }
   public getPostClick(data){
