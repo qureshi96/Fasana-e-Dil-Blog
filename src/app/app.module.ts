@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
@@ -15,7 +15,13 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { BlogListService } from './blog-list.service';
 
+export function initialiseApp(bloglistservice:BlogListService){
+  return (): Promise<any> =>{
+    return bloglistservice.loadInitialData();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -36,8 +42,16 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AngularFireAuth],
-  
+  providers: 
+  [
+      AngularFireAuth,
+    {
+       provide:APP_INITIALIZER,
+       useFactory: initialiseApp,
+       deps:[BlogListService],
+       multi:true 
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

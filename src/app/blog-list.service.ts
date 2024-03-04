@@ -9,6 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import  firebase  from 'firebase/app';
 import { AngularFireModule } from '@angular/fire/compat'; // Assuming you're using AngularFireModule
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -18,47 +19,46 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 export class BlogListService {
  
   blogsList : BlogPostModel[]= [];
-  obj:BlogPostModel[];
-  
+  private dataList = new BehaviorSubject<BlogPostModel[]>([]);
+  public dataListObservable = this.dataList.asObservable();
+ 
   constructor(private db: AngularFireDatabase,private afAuth: AngularFireAuth) { 
    
-    this.db.list<BlogPostModel>('/BlogsList').valueChanges().subscribe(data=>{
-      this.obj=data;
-    });
+  // setTimeout(() => {
+  //   this.db.list<BlogPostModel>('/BlogsList').valueChanges().subscribe(data=>{
+  //     this.blogsList=data;
+  //   });
+  // }, 1000);
+    
+  
+ 
     
     
   }
  
-    
-  
-  GetBlogList(){
-    
-    this.blogsList=this.obj
-    return this.blogsList;
+loadInitialData():Promise<void>{
+  return new Promise((resolve,reject) =>{
+    const dataRef= this.db.list<BlogPostModel>('/BlogsList').valueChanges();
+    dataRef.subscribe(
+      (data:any) =>{this.dataList.next(data);
+            resolve();},
+      error=> reject(error)
+    );
+  });
+
+}
+
+GetBlogList(){
+   
+    return this.dataList;
 
   }
-  GetBlogPost(index){
-    this.blogsList=this.obj;
+
+
+GetBlogPost(index){
+    
     return this.blogsList[index];
-  }
-  // async googleSignIn() {
-  //   const provider = new firebase.auth.GoogleAuthProvider();
-  //   try {
-  //     const result = await this.afAuth.signInWithPopup(provider);
-  //     return result;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-  async googleSignIn() {
-    const provider = new GoogleAuthProvider();
-    try {
-      const result = await signInWithPopup(getAuth(), provider);
-      // Use result.user here
-      return result;
-    } catch (error) {
-      console.error(error);
-      // Handle errors here
-    }
-  }
+}
+  
+ 
 }

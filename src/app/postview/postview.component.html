@@ -11,4 +11,13 @@
     <div *ngIf="i%2==0" data-aos="fade-right" data-aos-duration="1000" class="container contentParagraph animate__animated"
     [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutLeft':''">{{para}}</div>
 </div>
+<hr>
+<div *ngIf="this.user!=null">
+<button class="container"  (click)="this.userAuth.logout()">Logout</button>
+</div>
+<div *ngIf="this.user==null">
+<button class="container"  (click)="this.userAuth.googleSignIn()">Sign in to comment</button>
+</div>
+<div class="container contentParagraph "
+ style="margin-top: 3%;" data-aos="fade" data-aos-duration="1000" data-aos-anchor-placement="bottom" *ngIf="this.user!=null">Comment as {{this.user.displayName}}</div>
 <!---->
