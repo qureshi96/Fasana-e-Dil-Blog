@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit {
     });
     setTimeout(() => {
       this.blogs=this.bloglist.GetBlogList();
-    }, 250);
+    }, 350);
   
 
   }

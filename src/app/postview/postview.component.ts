@@ -26,13 +26,13 @@ export class PostviewComponent implements OnInit {
     }
 
     );
-    setTimeout(() => {
     this.querystring=this.router.url.toString().split("?")[1];
     this.params = new URLSearchParams(this.querystring);
     this.id=this.params.get("id");
+    setTimeout(() => {
 
     this.blogpost = this.bloglist.GetBlogPost(this.id);
-    }, 300);
+    }, 400);
    
   
   }

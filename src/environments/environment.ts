@@ -13,6 +13,14 @@ export const environment = {
     messagingSenderId: "687532687072",
     appId: "1:687532687072:web:5e8f91934b1905fafa1a85",
     measurementId: "G-60CBF7V9K8"
+  },
+  googleAuth: {
+    apiKey: "AIzaSyC3MkEpbqJgRIRmJjix95XcA_RNfpnTrqs",
+    authDomain: "fasana-e-dil.firebaseapp.com",
+    projectId: "fasana-e-dil",
+    storageBucket: "fasana-e-dil.appspot.com",
+    messagingSenderId: "687532687072",
+    appId: "1:687532687072:web:5e8f91934b1905fafa1a85",
   }
 };
 

@@ -13,6 +13,9 @@ import { PostpreviewComponent } from './postpreview/postpreview.component';
 import { PostviewComponent } from './postview/postview.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @NgModule({
   declarations: [
@@ -29,10 +32,11 @@ import { AngularFireModule } from '@angular/fire/compat';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   
   bootstrap: [AppComponent]
 })
