@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BlogListService } from './blog-list.service';
+import { CommentslistComponent } from './commentslist/commentslist.component';
 
 export function initialiseApp(bloglistservice:BlogListService){
   return (): Promise<any> =>{
@@ -34,7 +35,8 @@ export function initialiseApp(bloglistservice:BlogListService){
     AboutComponent,
     PostsComponent,
     PostpreviewComponent,
-    PostviewComponent
+    PostviewComponent,
+    CommentslistComponent
   ],
   imports: [
     BrowserModule,

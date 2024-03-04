@@ -1,7 +1,0 @@
-export class CommentModel{
-    text:string;
-    username:string;
-    photoUrl:string;
-    email:string;
-    time:Date;
-}

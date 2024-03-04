@@ -12,12 +12,19 @@
     [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutLeft':''">{{para}}</div>
 </div>
 <hr>
-<div *ngIf="this.user!=null">
-<button class="container"  (click)="this.userAuth.logout()">Logout</button>
+<div class="row">
+<div class="col text-center animate__animated" style="margin-bottom:2%;" [ngClass]="this.user==null? 'animate__fadeOutLeft':'animate__fadeInRight'">
+<button class="btn btn-secondary text-center pointer animate__animated "
+
+ style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
+   (click)="this.userAuth.logout()">Log out</button>
+   </div>
+   <div [ngClass]="this.user!=null? 'animate__fadeOutRight':'animate__fadeInLeft'" class="col text-center animate__animated" style="margin-bottom:2%;">
+<button class="btn btn-secondary text-center pointer animate__animated animate__fadeInLeft"
+
+ style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
+   (click)="this.userAuth.googleSignIn()">Sign in to comment</button>
 </div>
-<div *ngIf="this.user==null">
-<button class="container"  (click)="this.userAuth.googleSignIn()">Sign in to comment</button>
 </div>
-<div class="container contentParagraph "
- style="margin-top: 3%;" data-aos="fade" data-aos-duration="1000" data-aos-anchor-placement="bottom" *ngIf="this.user!=null">Comment as {{this.user.displayName}}</div>
+ <app-commentslist></app-commentslist>
 <!---->

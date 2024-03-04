@@ -7,6 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UserAuthService {
   private user = new BehaviorSubject(null);
+  public logoutclicked: boolean=false;
+  public loginclicked:boolean = false;
 
   constructor(private auth: AngularFireAuth) { 
     this.initAuthListener();
@@ -14,9 +16,14 @@ export class UserAuthService {
 
   async googleSignIn() {
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account'
+    });
     try {
       const result = await signInWithPopup(getAuth(), provider);
       // Use result.user here
+      this.logoutclicked=false;
+      this.loginclicked=true;
       return result;
     } catch (error) {
       console.error(error);
@@ -27,6 +34,8 @@ export class UserAuthService {
   async logout(){
     try{
       await signOut(getAuth());
+      this.loginclicked=false;
+      this.logoutclicked=true;
        console.log("signed out");
     }
     catch(error){

@@ -1,0 +1,12 @@
+<div class="container comment-list">
+    <div *ngFor="let comment of comments" class="comment">
+      <img src="{{comment.photoUrl}}" alt="User Picture" class="user-picture">
+      <div class="comment-content">
+        <div class="user-info">
+          <span class="username">{{ comment.username }}</span>
+          <span class="date-time">{{ comment.time | date: 'medium' }}</span>
+        </div>
+        <p class="contentParagraph text">{{ comment.text }}</p>
+      </div>
+    </div>
+  </div>

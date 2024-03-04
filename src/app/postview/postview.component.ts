@@ -58,7 +58,7 @@ export class PostviewComponent implements OnInit,OnDestroy {
     this.userSubscription=this.userAuth.getUser().subscribe(user=>{
       this.user=user;
       });
-    }
+      console.log(this.user);    }
 
   ngOnDestroy(): void {
     if(this.userSubscription){
