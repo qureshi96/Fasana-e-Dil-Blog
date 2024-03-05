@@ -11,20 +11,26 @@
     <div *ngIf="i%2==0" data-aos="fade-right" data-aos-duration="1000" class="container contentParagraph animate__animated"
     [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutLeft':''">{{para}}</div>
 </div>
-<hr>
+<hr [ngClass]="this.user!=null?'animate__animated animate__fadeInUp':'animate__animated animate__fadeInDown'">
 <div class="row">
-<div class="col text-center animate__animated" style="margin-bottom:2%;" [ngClass]="this.user==null? 'animate__fadeOutLeft':'animate__fadeInRight'">
+<div class="col text-center animate__animated" style="margin-bottom:2%;" [ngClass]="this.user!=null? 'animate__fadeOutLeft':'animate__fadeInRight'">
 <button class="btn btn-secondary text-center pointer animate__animated "
 
- style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
-   (click)="this.userAuth.logout()">Log out</button>
+ style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 15px; font-weight: 200; border-radius: 5px;"
+   (click)="signin()">Sign in to comment</button>
    </div>
-   <div [ngClass]="this.user!=null? 'animate__fadeOutRight':'animate__fadeInLeft'" class="col text-center animate__animated" style="margin-bottom:2%;">
+   <div [ngClass]="this.user==null? 'animate__fadeOutRight':'animate__fadeInLeft'" class="col text-center animate__animated" style="margin-bottom:2%;">
 <button class="btn btn-secondary text-center pointer animate__animated animate__fadeInLeft"
-
- style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 2vmin; font-weight: 200; border-radius: 5px;"
-   (click)="this.userAuth.googleSignIn()">Sign in to comment</button>
+ id="logout"
+ style="padding:0.5vh 0.6vw; color: white; background-color: #7A1A1A; font-size: 15px; font-weight: 200; border-radius: 5px;"
+   (click)="logout()">Log out</button>
 </div>
 </div>
- <app-commentslist></app-commentslist>
+<div id="commentbox" 
+  class="container comment-box-container animate__animated">
+    <textarea [(ngModel)]="comment" placeholder="Leave a comment here" id="commentField" class="stylish-text-area"></textarea>
+    <label for="commentField" class="floating-label">Leave a comment here</label>
+    <button class="comment-btn" (click)="commentsubmit()">Comment</button>
+  </div>
+ <app-commentslist [id]="id"></app-commentslist>
 <!---->

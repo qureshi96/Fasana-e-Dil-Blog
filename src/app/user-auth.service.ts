@@ -33,10 +33,11 @@ export class UserAuthService {
 
   async logout(){
     try{
+      
       await signOut(getAuth());
       this.loginclicked=false;
       this.logoutclicked=true;
-       console.log("signed out");
+       
     }
     catch(error){
       console.error("failed",error);

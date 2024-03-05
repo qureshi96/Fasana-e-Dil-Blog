@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BlogListService } from './blog-list.service';
 import { CommentslistComponent } from './commentslist/commentslist.component';
+import { FormsModule } from '@angular/forms';
 
 export function initialiseApp(bloglistservice:BlogListService){
   return (): Promise<any> =>{
@@ -40,6 +41,7 @@ export function initialiseApp(bloglistservice:BlogListService){
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)

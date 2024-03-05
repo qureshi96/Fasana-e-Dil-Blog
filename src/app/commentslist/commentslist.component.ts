@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CommentsService } from '../comments.service';
 import { CommentModel } from '../data/commentModel';
 @Component({
@@ -8,15 +9,23 @@ import { CommentModel } from '../data/commentModel';
 })
 export class CommentslistComponent implements OnInit {
   comments: CommentModel[] = [];
-
+  commentsSubscription: Subscription;
+ 
+  @Input() id;
   constructor(private commentsService:CommentsService) {
 
    }
 
   ngOnInit(): void {
-    this.commentsService.getComments().subscribe(comments =>{
-      this.comments=comments;
+    this.commentsService.loadComments(this.id).catch((error)=>{
+      console.log("error loading comments:",error);
     });
+    this.commentsSubscription=this.commentsService.dataListObservable.subscribe(
+      (data) =>{
+        this.comments=data;
+      }
+    );
+    
 
   }
 

@@ -1,0 +1,70 @@
+.comment-box-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+  
+  .stylish-text-area {
+    width: 100%;
+    padding: 10px 15px;
+    
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allows the text area to be resized vertically */
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensures padding does not affect the overall width */
+    min-height: 100px; /* Initial height */
+  }
+  
+  .stylish-text-area:focus {
+    border-color: #7A1A1A; /* Change to match your theme */
+  }
+  
+  .stylish-text-area::placeholder {
+    color: transparent;
+  }
+  
+  .stylish-text-area:focus + .floating-label,
+  .stylish-text-area:not(:placeholder-shown) + .floating-label {
+    top: -10px;
+    left: 15px;
+    background-color: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #7A1A1A; /* Change to match your theme */
+  }
+  
+  .floating-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    color: #aaa;
+  }
+  
+  .comment-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7A1A1A; /* Change to match your theme */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .comment-btn:hover {
+    background-color: #7A1A1A; /* Darker shade for hover effect */}
+
+    .displaynone{
+        display:none;
+    }
+    .displayon{
+        display: visible;
+    }
