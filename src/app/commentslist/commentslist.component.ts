@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommentsService } from '../comments.service';
 import { CommentModel } from '../data/commentModel';
+import { UserAuthService } from '../user-auth.service';
 @Component({
   selector: 'app-commentslist',
   templateUrl: './commentslist.component.html',
@@ -12,7 +13,7 @@ export class CommentslistComponent implements OnInit {
   commentsSubscription: Subscription;
  
   @Input() id;
-  constructor(private commentsService:CommentsService) {
+  constructor(private commentsService:CommentsService, private user:UserAuthService) {
 
    }
 
@@ -26,6 +27,10 @@ export class CommentslistComponent implements OnInit {
       }
     );
     
+
+  }
+  deleteComment(comment){
+    this.commentsService.deleteComment(comment);
 
   }
 

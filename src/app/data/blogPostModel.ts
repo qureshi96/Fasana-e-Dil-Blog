@@ -1,4 +1,6 @@
 export class BlogPostModel {
+    _id:string;
+    isUrdu:boolean;
     id: string;
     content: string[]=[];
     title: string;

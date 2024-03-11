@@ -7,17 +7,17 @@
   }
   
   .stylish-text-area {
-    width: 100%;
+    width: 80%;
     padding: 10px 15px;
-    
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical; /* Allows the text area to be resized vertically */
-    outline: none;
+    
     transition: border-color 0.3s ease-in-out;
     box-sizing: border-box; /* Ensures padding does not affect the overall width */
     min-height: 100px; /* Initial height */
+    overflow: hidden;
   }
   
   .stylish-text-area:focus {
@@ -26,6 +26,8 @@
   
   .stylish-text-area::placeholder {
     color: transparent;
+    font-size: medium;
+    padding-left: 10px;
   }
   
   .stylish-text-area:focus + .floating-label,
@@ -68,3 +70,5 @@
     .displayon{
         display: visible;
     }
+   
+    

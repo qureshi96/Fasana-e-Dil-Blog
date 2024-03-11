@@ -1,61 +1,39 @@
-import { Injectable } from '@angular/core';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { userModel } from './data/userModel';
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthService {
+export class UserAuthService implements OnInit {
   private user = new BehaviorSubject(null);
-  public logoutclicked: boolean=false;
-  public loginclicked:boolean = false;
+  public userDetails: userModel=new userModel();
 
-  constructor(private auth: AngularFireAuth) { 
-    this.initAuthListener();
+  constructor() { 
+    
+  }
+  
+  ngOnInit(): void {
+  
+   
+  }
+  decodeToken(token:string){
+    return JSON.parse(atob(token.split(".")[1]));
   }
 
-  async googleSignIn() {
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({
-      prompt: 'select_account'
-    });
-    try {
-      const result = await signInWithPopup(getAuth(), provider);
-      // Use result.user here
-      this.logoutclicked=false;
-      this.loginclicked=true;
-      return result;
-    } catch (error) {
-      console.error(error);
-      // Handle errors here
-    }
-  }
-
-  async logout(){
-    try{
-      
-      await signOut(getAuth());
-      this.loginclicked=false;
-      this.logoutclicked=true;
-       
-    }
-    catch(error){
-      console.error("failed",error);
-    }
-  }
-
-  private initAuthListener(){
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) =>{
-        if(user){
-          this.user.next(user);
-        }
-        else{
-          this.user.next(null);
-        }
-    });
+  googleSignIn(user) {
+    this.user.next(user);
+    const payload=this.decodeToken(user.credential);
+    this.userDetails.setUserDetails(payload.name,payload.picture,payload.email);
+    console.log(this.userDetails);
 
   }
+  logout(){
+    this.user.next(null);
+    this.userDetails=new userModel();
+    console.log(this.userDetails);
+  }
+
   getUser(){
     return this.user.asObservable();
   }

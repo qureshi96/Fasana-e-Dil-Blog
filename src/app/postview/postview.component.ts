@@ -1,3 +1,4 @@
+//declare var google:any
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPostModel } from '../data/blogPostModel';
@@ -6,20 +7,21 @@ import { BlogListService } from '../blog-list.service';
 import { UserAuthService } from '../user-auth.service';
 import { ConnectableObservable, Subscription } from 'rxjs';
 import * as Aos from 'aos';
-import { User } from 'firebase/auth';
+//import { User } from 'firebase/auth';
 import { CommentModel } from '../data/commentModel';
 import { CommentsService } from '../comments.service';
 
 
 @Component({
   selector: 'app-postview',
+  
   templateUrl: './postview.component.html',
   styleUrls: ['./postview.component.css']
 })
 export class PostviewComponent implements OnInit,OnDestroy {
   params:any;
   id:any;
-  user:any =null;
+  user:any;
  querystring:string = "";
  blogs: BlogPostModel[]=[];
   blogpost: BlogPostModel = new BlogPostModel();
@@ -50,6 +52,7 @@ export class PostviewComponent implements OnInit,OnDestroy {
       once:true
     });
 
+
     this.dataSubscription = this.bloglist.dataListObservable.subscribe(
       (data) => {
         this.blogs = data;
@@ -69,7 +72,7 @@ export class PostviewComponent implements OnInit,OnDestroy {
      
       this.commentboxtoggle();
       });
-      //console.log(this.user);   
+       
      }
 
   ngOnDestroy(): void {
@@ -98,21 +101,16 @@ export class PostviewComponent implements OnInit,OnDestroy {
       });
     }
   }
-  logout(){
-    
-    this.userAuth.logout();
-    
-  }
-  signin(){
-    
-    this.userAuth.googleSignIn() 
-  }
+  
   commentsubmit(){
-    if(this.user!=null)
-    {
-      console.log(this.user)
-      this.commentservice.postComment(this.id,new CommentModel(this.comment,this.user.displayName,this.user.photoURL,this.user.email,new Date()));
-    }
+     if(this.user!=null && this.comment!="")
+     {  
+
+       this.commentservice.postComment(new CommentModel(this.id,this.comment,this.userAuth.userDetails.name,
+        this.userAuth.userDetails.photoUrl,this.userAuth.userDetails.email,new Date().toString()));
+        this.comment="";
+       
+     }
   }
 
 }

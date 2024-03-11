@@ -12,17 +12,19 @@ import { PostsComponent } from './posts/posts.component';
 import { PostpreviewComponent } from './postpreview/postpreview.component';
 import { PostviewComponent } from './postview/postview.component';
 import { environment } from '../environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+//import { AngularFireModule } from '@angular/fire/compat';
+//import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+//import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BlogListService } from './blog-list.service';
 import { CommentslistComponent } from './commentslist/commentslist.component';
 import { FormsModule } from '@angular/forms';
+import{HttpClientModule} from '@angular/common/http';
+import { SigninComponent } from './signin/signin.component'
 
 export function initialiseApp(bloglistservice:BlogListService){
-  return (): Promise<any> =>{
-    return bloglistservice.loadInitialData();
-  };
+   return (): Promise<any> =>{
+     return bloglistservice.loadInitialData();
+   };
 }
 
 @NgModule({
@@ -37,25 +39,27 @@ export function initialiseApp(bloglistservice:BlogListService){
     PostsComponent,
     PostpreviewComponent,
     PostviewComponent,
-    CommentslistComponent
+    CommentslistComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    HttpClientModule
+  //  AngularFireAuthModule,
+  //  AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: 
   [
-      AngularFireAuth,
-    {
+      HttpClientModule,
+  {
        provide:APP_INITIALIZER,
        useFactory: initialiseApp,
        deps:[BlogListService],
        multi:true 
       }
-  ],
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

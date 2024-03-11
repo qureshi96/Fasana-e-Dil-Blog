@@ -1,12 +1,14 @@
-<div class="container comment-list">
-    <div *ngFor="let comment of comments" class="comment">
+<div class="container comment-list" style="margin-bottom: 5%; ">
+  <h3>Comments({{comments.length}})</h3>
+    <div *ngFor="let comment of comments" data-aos="fade-up" data-aos-easing="ease" data-aos-duration="500" style="height: fit-content ;"class="col-lg-6 col-sm-12 col-md-8 comment">
       <img src="{{comment.photoUrl}}" alt="User Picture" class="user-picture">
       <div class="comment-content">
         <div class="user-info">
           <span class="username">{{ comment.username }}</span>
           <span class="date-time">{{ comment.time | date: 'medium' }}</span>
         </div>
-        <p class="contentParagraph text">{{ comment.text }}</p>
+        <p class="contentParagraph text" style="font-weight: 400;">{{ comment.text }}</p>
       </div>
+      <a *ngIf="this.user.userDetails.email==comment.email" (click)="deleteComment(this.comment)"  class="pointer" style="font-size: small; color:rgb(163, 39, 39); padding-top: 40px; padding-bottom: 40px">Delete</a>
     </div>
   </div>
