@@ -10,6 +10,7 @@ export class CoverComponent implements OnInit {
   @Input() id;
   @Input() blogtitle: string;
   @Input() blogsubtitle : string;
+  @Input() isUrdu:boolean;
   @Input() ispostclicked:boolean;
   constructor(public navbarclick:NavbarclickService) { 
     if(navbarclick.navbarclick){

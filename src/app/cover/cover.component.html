@@ -2,19 +2,23 @@
 
 <div class="CoverTitle">فسانہِ دِل</div> -->
 
-<header  class="masthead animate__animated" id='coverpic' 
-        [ngClass]="[id==0 ? 'id0 animate__fadeInRight':'animate__fadeInRight',id==1?'id1 animate__fadeInRight':'animate__fadeInRight',
-                    id==2 ?'id2 animate__fadeInRight':'animate__fadeInRight', id==3 ? 'id3 animate__fadeInRight':'animate_fadeInRight', 
-                    id==4 ?'id4 animate__fadeInRight':'animate__fadeInRight', id==5 ?' id5 animate_fadeInRight' : 'animate_fadeInRight',
-                    id==6 ?'id6 animate__fadeInRight':'animate__fadeInRight',
-                    ispostclicked?'animate__fadeOutLeft':'', this.navbarclick.navbarclick?'animate__fadeOutRight':''] " >
+<header  class="masthead animate__animated" id='coverpic'
+         [ngClass]="[id==0 ? 'id0 animate__fadeInRight':'animate__fadeInRight',id==1?'id1 animate__fadeInRight':'animate__fadeInRight',
+         id==2 ?'id2 animate__fadeInRight':'animate__fadeInRight', id==3 ? 'id3 animate__fadeInRight':'animate_fadeInRight', 
+         id==4 ?'id4 animate__fadeInRight':'animate__fadeInRight', id==5 ?' id5 animate_fadeInRight' : 'animate_fadeInRight',
+         id==6 ?'id6 animate__fadeInRight':'animate__fadeInRight', id==7 ?'id7 animate__fadeInRight':'animate__fadeInRight',
+         id==8 ?'id8 animate__fadeInRight':'animate__fadeInRight', id==9 ?'id9 animate__fadeInRight':'animate__fadeInRight',
+         id==10 ?'id10 animate__fadeInRight':'animate__fadeInRight',id==15?'id15 animate__fadeInRight':'animate__fadeInRight',
+         id==11 ?'id11 animate__fadeInRight':'animate__fadeInRight', id==12 ?'id12 animate__fadeInRight':'animate__fadeInRight',
+         id==13 ?'id13 animate__fadeInRight':'animate__fadeInRight', id==14 ?'id14 animate__fadeInRight':'animate__fadeInRight',
+         ispostclicked?'animate__fadeOutLeft':'', this.navbarclick.navbarclick?'animate__fadeOutRight':''] " >
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1 data-aos="fade-up"  data-aos-duration="1000">{{blogtitle}}</h1>
-            <span class="subheading" data-aos="fade-left"data-aos-easing="ease-in-sine" data-aos-duration="1000" >{{blogsubtitle}}</span>
+            <h1 data-aos="fade-up"  data-aos-duration="1000" [ngClass]="isUrdu?'noto-nastaliq':''" style="text-align: center; padding-bottom: 2%;">{{blogtitle}}</h1>
+            <span  data-aos="fade-left"data-aos-easing="ease-in-sine" data-aos-duration="1000"[ngClass]="isUrdu?'noto-nastaliq':'subheading'" style="margin-top: 10px;" >{{blogsubtitle}}</span>
             <span class="meta" ng-if="header.byline.length > 0" ng-bind="header.byline">
             </span>
           </div>

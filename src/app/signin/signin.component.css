@@ -3,7 +3,8 @@
     color: #5f6368;
     font-size: 14px;
     padding: 0 20px;
-    line-height: 36px;
+    width: max-content;
+    height: 35px;
     border: 1px solid #dadce0;
     border-radius: 25px;
     font-weight: 500;
@@ -27,4 +28,6 @@
   .sign-out-button:active {
     background-color: #ebebeb;
   }
-  
+  .displaynone{
+    display: none;
+  }

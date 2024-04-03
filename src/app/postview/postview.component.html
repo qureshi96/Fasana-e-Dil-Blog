@@ -1,14 +1,15 @@
-<app-cover [id]="id" [blogtitle]="blogpost.title" [blogsubtitle]="blogpost.subtitle"></app-cover>
-<div *ngFor="let para of blogpost.content,let i = index" >
+
+<app-cover [id]="id" [isUrdu]="blogpost.isUrdu" [blogtitle]="blogpost.title" [blogsubtitle]="blogpost.subtitle"></app-cover>
+<div *ngFor="let para of blogpost.content,let i = index" [ngClass]="blogpost.isUrdu?'noto-nastaliq':'contentParagraph'" >
     <div style="text-align: center; margin-top: 2%;margin-bottom: 2%;">
          
-        <img *ngIf="i%2==0 && i!=0" class="col-12 col-lg-8 col-xl-4 col-md-10 col-sm-12" data-aos="fade-left" data-aos-duration="1000"
+        <img *ngIf="i%2==0 && i!=0 && blogpost.id!=9" class="col-12 col-lg-8 col-xl-6 col-md-10 col-sm-12" data-aos="fade-left" data-aos-duration="1000"
             src="{{'/assets/Blog_id' + id + '_index' + i +'.JPG'}}" >
         
         </div>
-        <div *ngIf="i%2!=0" data-aos="fade-left" data-aos-duration="1000" data-aos-anchor-placement="top" class="container contentParagraph animate__animated"
+        <div *ngIf="i%2!=0" data-aos="fade-left" data-aos-duration="1000" data-aos-anchor-placement="top" class="container  animate__animated" [ngClass]="blogpost.isUrdu?'noto-nastaliq':''"
         [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutRight':''">{{para}}</div>
-    <div *ngIf="i%2==0" data-aos="fade-right" data-aos-duration="1000" class="container contentParagraph animate__animated"
+    <div *ngIf="i%2==0" data-aos="fade-right" data-aos-duration="1000" class="container animate__animated" [ngClass]="blogpost.isUrdu?'noto-nastaliq':''"
     [ngClass]="this.navbarclick.navbarclick?'animate__fadeOutLeft':''">{{para}}</div>
 </div>
 <hr [ngClass]="this.user!=null?'animate__animated animate__fadeInUp':'animate__animated animate__fadeInDown'">

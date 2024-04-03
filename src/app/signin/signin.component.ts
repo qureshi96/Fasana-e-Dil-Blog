@@ -12,7 +12,7 @@ export class SigninComponent implements OnInit {
   user :any ;
   userSubscription: Subscription;
   constructor(private userAuth:UserAuthService) { }
-
+  
   ngOnInit(): void {
     
       google.accounts.id.initialize({
@@ -22,12 +22,23 @@ export class SigninComponent implements OnInit {
         this.user=resp;
         console.log(resp)
         this.userAuth.googleSignIn(resp);
+        
+   
       }
        
     })
 
     this.userSubscription=this.userAuth.getUser().subscribe(user=>{
       this.user=user;
+      const googlebtn=document.querySelector('#googlebtn');
+      googlebtn.addEventListener('animationend',()=>{
+        if(this.user!=null){
+          googlebtn.classList.add('displaynone');
+        }
+        else{
+          googlebtn.classList.remove('displaynone');
+        }
+      })
       if(this.user==null){
         google.accounts.id.renderButton(document.getElementById("google-btn"),{
           theme: '',
@@ -45,5 +56,7 @@ logout(){
   google.accounts.id.disableAutoSelect();
   this.user=null;
   this.userAuth.logout();
+  const googlebtn=document.querySelector('#googlebtn');
+  googlebtn.classList.remove('displaynone');
 }
-}
+      }
