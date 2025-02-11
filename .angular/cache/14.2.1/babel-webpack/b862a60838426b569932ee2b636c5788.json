@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class BlogPostModel {\n  constructor() {\n    this.content = [];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
